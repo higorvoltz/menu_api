@@ -6,17 +6,17 @@ class SecretMenuItemsController < ApplicationController
     render json: @secret_menu_items
   end
 
-  def show
-    @secret_menu_item = SecretMenuItem.find(params[:id])
-    render json: @secret_menu_item
-  end
-
   def create
     @secret_menu_item = SecretMenuItem.create(
       menu_name: params[:menu_name],
       restaurant_name: params[:restaurant_name],
       menu_description: params[:menu_description]
     )
+    render json: @secret_menu_item
+  end
+
+  def show
+    @secret_menu_item = SecretMenuItem.find(params[:id])
     render json: @secret_menu_item
   end
 
